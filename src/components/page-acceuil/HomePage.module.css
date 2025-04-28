@@ -1,0 +1,66 @@
+/* HomePage Styling */
+.home-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #e3f2fd; /* Bleu clair pour l'arrière-plan */
+    height: 100vh; /* Hauteur complète de la fenêtre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-header {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour le conteneur principal */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.home-header h1 {
+    font-size: 2.5rem;
+    color: #0d47a1; /* Bleu profond */
+    margin-bottom: 20px;
+}
+
+.home-header p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.start-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #1e88e5; /* Bleu primaire */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #1565c0; /* Bleu plus foncé lors du survol */
+}
+
+.start-button:active {
+    background-color: #0d47a1; /* Bleu encore plus foncé lors du clic */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .home-header h1 {
+        font-size: 2rem;
+    }
+
+    .home-header p {
+        font-size: 1rem;
+    }
+
+    .start-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}

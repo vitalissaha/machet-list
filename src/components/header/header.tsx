@@ -11,7 +11,7 @@ export const Header= () => {
                 <div>
                     <h1>TaskFlow</h1>
                     <div className="color-gray">
-                        <code>eliminer ls choa, suiver le flux</code>
+                        <code>merci de votre confiance </code>
                     </div>
                 </div>
             </div>

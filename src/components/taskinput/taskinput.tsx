@@ -3,45 +3,43 @@ import { useState } from "react";
 import style from "./taskinput.module.css";
 
 interface TaskInputProps {
-    addTask: (title: string) => void;
+    addItem: (name: string, price: number) => void;
 }
 
-export const TaskInput: React.FC<TaskInputProps> = ({ addTask }) => {
-    
-    const [taskTitle,setTaskTitle] = useState("");
+export const TaskInput: React.FC<TaskInputProps> = ({ addItem }) => {
+    const [name, setName] = useState<string>(''); // Nom de l'article
+    const [price, setPrice] = useState<number>(0); // Prix de l'article
 
-    const handleInputChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
-    
+    // Fonction pour gérer la soumission du formulaire
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // addTask(taskTitle);
-        setTaskTitle(e.target.value);
-    
+        // Ajouter l'article uniquement si le nom et le prix sont valides
+        if (name.trim() && price > 0) {
+            addItem(name, price);
+            setName(''); // Réinitialiser le nom
+            setPrice(0); // Réinitialiser le prix
+        }
     };
 
-    const handleAddTask = (e: React.FormEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-        if(taskTitle.trim()){
-            addTask(taskTitle);
-            setTaskTitle("");
-        };
-    
-    };
-
-    return(
-        <div className={`box ${style.element}`}>
-            <h2 className={style.title}> 🎯ajoute ta premier tache</h2>
-            <form className={style.container} onSubmit={handleAddTask}>
-                <input type="text"
-                className={style.input}
-                placeholder="indiquez un titre de tache explicite"
-                onChange={handleInputChange}
-                value={taskTitle}
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Nom de l'article"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
-                
-                <button className="button-primary" type="submit">
-                    ajouter
-                </button>
-            </form>
-        </div>
+            </div>
+            <div>
+                <input
+                    type="number"
+                    placeholder="Prix de l'article"
+                    value={price}
+                    onChange={(e) => setPrice(Number(e.target.value))}
+                />
+            </div>
+            <button type="submit">Ajouter l'article</button>
+        </form>
     );
 };

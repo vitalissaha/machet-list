@@ -1,128 +1,135 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #141414;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.box {
-  background-color: #171717;
-  border-radius: 8px;
-  border: 1px solid #272727;
-  padding: 24px;
-}
-
-.color-primary {
-  color: rgba(59, 121, 246, 1);
-}
-
-.color-gray {
-  color: #888;
-}
-
-.important {
-  background-color: rgba(59, 121, 246, 0.15);
-  color: #2870ff;
-  padding: 5px 8px;
-  border-radius: 8px;
-  font-weight: 900;
-  margin: 0 2px;
-  font-size: 0.8em;
-}
-
-a {
-  font-weight: 500;
-  color: rgba(59, 121, 246, 1);
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Body styling */
 body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e3f2fd; /* Bleu très clair pour le fond général */
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container Principal */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff; /* Le fond du contenu reste blanc pour contraster */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-  font-size: 2em;
-  line-height: 1.4;
-  margin: 0;
+  font-size: 2.5rem;
+  color: #0d47a1; /* Bleu profond */
+  font-weight: bold;
 }
 
-h2 {
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin: 0;
+/* Style des éléments d'entrée */
+input[type="text"], input[type="number"], button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+input[type="text"], input[type="number"] {
+  background-color: #f9f9f9; /* Fond gris clair pour les entrées */
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1e88e5; /* Bleu primaire */
+  color: rgb(140, 21, 21);
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: rgba(59, 121, 246, 0.15);
-  border-color: rgba(59, 121, 246, 0.25);
+  background-color: #1565c0; /* Bleu plus foncé sur survol */
 }
 
-button:focus,
-button:focus-visible,
-a:focus,
-a:focus-visible {
-  outline: 4px auto rgba(59, 121, 246, 0.25);
+/* Liste des articles (TaskList) */
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.button-primary {
-  background-color: rgba(59, 121, 246, 0.15);
-  color: #2870ff;
-}
-.button-primary:hover {
-  background-color: rgba(59, 121, 246, 0.25);
-  border-color: rgba(59, 121, 246, 0.35);
+li {
+  padding: 15px;
+  background-color: #0d47a1;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+li span {
+  font-size: 1.2rem;
+  color: #c42c2c;
+}
+
+li button {
+  background-color: #ff7043; /* Rouge pour la suppression */
+  margin-left: 10px;
+}
+
+li button:hover {
+  background-color: #d84315; /* Rouge plus foncé sur survol */
+}
+
+/* Section Total Price */
+.total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0d47a1; /* Bleu profond */
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Message d'erreur ou succès */
+.message {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.message.success {
+  color: #388e3c; /* Vert pour les succès */
+}
+
+.message.error {
+  color: #e53935; /* Rouge pour les erreurs */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+      margin: 20px;
+      padding: 15px;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+      font-size: 2rem;
   }
-  button {
-    background-color: #f9f9f9;
+
+  input[type="text"], input[type="number"], button {
+      font-size: 0.9rem;
+      padding: 10px 15px;
+  }
+
+  .total-price {
+      font-size: 1.2rem;
   }
 }

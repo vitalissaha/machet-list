@@ -1,44 +1,46 @@
 
-import { TaskItem } from "../taskItem/taskItem";
+// Corrected import path for the Item interface
+export interface Item {
+    id: string;
+    name: string;
+    price: number;
+    dateAdded: string;
+}
+
 import style from "./taskList.module.css";
 
-interface Task {
-    id: number;
-    title: string;
-    completed: boolean;
-}
-
 interface TaskListProps {
-    taskList: Task[];
-    incompletedTasks: number;
-    editTask: (id: number, completedValue: boolean) => void;
-    deleteTask: (id: number) => void;
+    itemList: Item[];
+    totalPrice: number;
+    initialAmount: number;
+    message: string;
 }
 
-
-
-export const TaskList: React.FC<TaskListProps> = ({ taskList, incompletedTasks, editTask, deleteTask }) => {
-    const taskItems = taskList.map((task) => (
-        <TaskItem 
-            key={task.id} 
-            task={task} 
-            editTask={editTask} 
-            deleteTask={deleteTask} 
-        />
-    ));
-
+export const TaskList: React.FC<TaskListProps> = ({
+    itemList,
+    totalPrice,
+    initialAmount,
+    message,
+}) => {
     return (
         <div className="box">
-            <h2 className={style.title}>
-                📃 Il te reste encore {incompletedTasks} tâche(s) à accomplir
-            </h2>
-            {taskList && taskList.length > 0 ? (
+            <h2 className={style.title}>🛒 Liste de courses</h2>
+            {itemList.length > 0 ? (
                 <ul className={style.container}>
-                    {taskItems}
+                    {itemList.map((item) => (
+                        <li key={item.id} className={style.item}>
+                            {item.name} - {item.price} € (Ajouté le: {item.dateAdded})
+                        </li>
+                    ))}
                 </ul>
             ) : (
-                <p>Aucune tâche à afficher</p>
+                <p>Aucun article ajouté à la liste</p>
             )}
+
+            <div className={style.actions}>
+                <p>Total: {totalPrice} €</p>
+                {message && <p>{message}</p>}
+            </div>
         </div>
     );
 };

@@ -1,13 +1,18 @@
 import { TaskContainer } from "./components/taskContainer";
 
-function App() {
- 
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/page-acceuil/HomePage'; // Importation de la page d'accueil
+
+
+const App: React.FC = () => {
   return (
-    <>
-
-     <TaskContainer/>
-
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/taskcontainer" element={<TaskContainer />} />
+      </Routes>
+    </Router>
   );
 };
 

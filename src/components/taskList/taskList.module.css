@@ -1,17 +1,19 @@
 .title {
-    margin-bottom: 20px;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .emptyState {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.container {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #f4f4f4;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -4,7 +4,7 @@ export const Footer = () => {
     return(
         <footer>
             <code className={style.footer}>
-                avec taskflow tu as iliminer x tache"s"
+                avec Machet list faire les listes de vos cources  ❤️ par 
             </code>
         </footer>
     );
